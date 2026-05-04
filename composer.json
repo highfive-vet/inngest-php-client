@@ -1,0 +1,65 @@
+{
+    "name": "highfive/inngest-php",
+    "description": "Framework-agnostic PHP client for the Inngest event ingestion and v1 REST APIs, with optional Laravel auto-discovery.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["inngest", "events", "workflow", "queue", "psr-18", "laravel"],
+    "authors": [
+        {
+            "name": "Ian Rodrigues",
+            "email": "ian@rdgs.net"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0",
+        "php-http/discovery": "^1.19"
+    },
+    "require-dev": {
+        "php-http/mock-client": "^1.6",
+        "nyholm/psr7": "^1.8",
+        "illuminate/support": "^11.0 || ^12.0",
+        "illuminate/contracts": "^11.0 || ^12.0",
+        "orchestra/testbench": "^9.0 || ^10.0",
+        "pestphp/pest": "^4.7"
+    },
+    "suggest": {
+        "illuminate/support": "Required to enable the Laravel ServiceProvider and Facade auto-discovery (^11.0 || ^12.0)."
+    },
+    "autoload": {
+        "psr-4": {
+            "Highfive\\Inngest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Highfive\\Inngest\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "check": [
+            "@composer validate --strict",
+            "@test"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Highfive\\Inngest\\Laravel\\InngestServiceProvider"
+            ],
+            "aliases": {
+                "Inngest": "Highfive\\Inngest\\Laravel\\InngestFacade"
+            }
+        }
+    },
+    "minimum-stability": "stable"
+}
