@@ -11,7 +11,7 @@ If you want PHP to author and serve Inngest functions, you want a different libr
 
 ## Requirements
 
-- PHP 8.2+
+- PHP 8.3+
 - A PSR-18 HTTP client and PSR-17 factories — auto-discovered via `php-http/discovery`. In a Laravel app this picks up Guzzle automatically; otherwise install any combination such as `nyholm/psr7` + `symfony/http-client` or `guzzlehttp/guzzle` + `guzzlehttp/psr7`.
 
 ## Install
